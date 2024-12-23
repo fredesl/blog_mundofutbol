@@ -1,0 +1,23 @@
+{% extends 'app_blog/base.html' %}
+
+{% load static %}
+
+
+{% block titulo %}
+Registrarse
+{% endblock %}
+
+{% block contenido %}
+
+<div class="container my-4">
+    <h1 class="text-center">Registro de usuario</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form_registro.as_p }}
+        <button class="btn btn-primary" type="submit">Registrarse</button>
+    </form>
+</div>
+
+
+{% endblock %}

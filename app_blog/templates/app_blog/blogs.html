@@ -1,0 +1,35 @@
+{% extends 'app_blog/base.html' %}
+
+{% load static %}
+
+{% block titulo %}
+Listado de Posts
+{% endblock titulo %}
+
+{% block contenido %}
+<h1 class="text-center mt-4">Posts</h1>
+<p class="text-center">Seguí cada noticia del Fútbol Argentino</p>
+
+<div class="container">
+
+   
+   {% if blogs %}
+     
+        {% for blog in blogs %}   
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <h4 class="card-title">{{blog.titulo}}</h4>
+                    <p class="card-text">{{blog.subtitulo}}</p>
+                    <p class="text-muted">{{blog.fecha}}</p>
+                    <a href="{% url 'blog-detalle' blog.id %}" class="btn btn-outline-primary">Leer más</a>
+                </div>
+            </div>
+    {% endfor %}
+
+    {% else %}
+        <h3 class="text-center">Aún no hay Posts</h3>
+    {% endif %}
+</div>
+
+
+{% endblock  %}

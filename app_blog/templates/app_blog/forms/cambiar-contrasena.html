@@ -1,0 +1,32 @@
+{% extends 'app_blog/base.html' %}
+
+{% block titulo %}
+Mundo Futbol | Cambiar Contraseña
+{% endblock %}
+
+
+{% block contenido %}
+
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-4">
+
+            <h1 class="text-center">Cambiar Contraseña</h1>
+            <p class="text-center fw-bold fst-italic">Resguarda tu contraseña! Es personal e intransferible.</p>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form_contrasena.as_p }}
+
+        <div class="d-flex justify-content-around">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a class="btn btn-secondary" href="{% url 'ver-perfil' %}">Volver</a>
+        </div>
+        </form>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'app_blog/base.html' %}
+
+{% block titulo %}
+Mensajes | Ver Mensajes
+{% endblock %}
+
+
+{% block contenido %}
+
+<h1 class="text-center mt-4">Mis Mensajes</h1>
+{% if mensajes %}
+
+    
+    {% for mensaje in mensajes %}
+    <div class="card mb-4">
+        <p class="card-text"><strong>Enviado por: {{mensaje.remitente}}</strong></p>
+        <p class="card-text"><em>Mensaje: {{mensaje.cuerpo_mensaje}}</em></p>
+        <p class="card-text"><small>Fecha: {{mensaje.fecha}}</small></p>
+    </div>
+    {% endfor %}
+        
+
+{% else %}
+<h3 class="text-center mt-4"><em>Aún no tienes mensajes</em></h3>
+{% endif %}
+    
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'app_blog/base.html' %}
+
+{% load static %}
+
+{% block titulo %}
+Listado de Posts
+{% endblock titulo %}
+
+{% block contenido %}
+<h1 class="text-center mt-4">Hola, {{user.username}}!</h1>
+<p style="font-family: 'Arial', sans-serif; text-align: center;">Estos son tus datos de Perfil</p>
+
+<div class="container">
+    <p style="font-family: 'Arial', sans-serif; text-align: center;">
+        <span style="color: blueviolet;">Nombre:</span> {{ user.first_name | default:"No has ingresado tu nombre" }}
+    </p>
+    <p style="font-family: 'Arial', sans-serif; text-align: center;">
+        <span style="color: blueviolet;">Apellido:</span> {{ user.last_name | default:"No has ingresado tu Apellido" }}
+    </p>
+    <p style="font-family: 'Arial', sans-serif; text-align: center;">
+        <span style="color: blueviolet;">Email:</span> {{ user.email | default:"No has ingresado tu email" }}
+    </p>
+    {% if perfil.foto %}
+        <div class="text-center">
+            <img src="{{ perfil.foto.url }}" alt="Foto de perfil" class="img-thumbnail" style="max-width: 200px;">
+        </div>
+    {% else %}
+        <p class="text-center">No has subido una foto de perfil.</p>
+    {% endif %}
+</div>
+
+{% endblock contenido %}

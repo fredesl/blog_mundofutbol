@@ -1,0 +1,18 @@
+{% extends 'app_blog/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Mundo Futbol | Inicio 🙌
+{% endblock %}
+
+
+
+{% block contenido %}
+{% if user.is_authenticated %}
+
+<h2 class="card-title text-center">Bienvenid@ {{user.username}}</h2>
+
+{% endif %}
+{% endblock contenido %}
+    

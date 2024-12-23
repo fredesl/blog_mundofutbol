@@ -1,0 +1,35 @@
+{% extends 'app_blog/base.html' %}
+
+{% block titulo %}
+Mundo Futbol | Crear Post
+{% endblock %}
+
+
+{% block contenido %}
+
+{% if user.is_superuser %}
+<div class="container my-4">
+    <div class="row justify-content-center">
+        <div class="col-4">
+
+            <h1 class="text-center">Crear Post</h1>
+            <p class="text-center fw-bold fst-italic">Completa los campos...</p>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form_blog.as_p }}
+
+        <div class="d-flex justify-content-around">
+            <button type="submit" class="btn btn-primary">Crear Post</button>
+            <a class="btn btn-secondary" href="{% url 'inicio' %}">Volver</a>
+        </div>
+        </form>
+
+        </div>
+    </div>
+</div>
+{% else %}
+<h3 class="text-center">No tiene permisos para acceder a esta Url</h3>
+{% endif %}
+
+{% endblock %}
