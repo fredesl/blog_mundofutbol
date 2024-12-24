@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 def inicio(request):
     return render(request, "app_blog/index.html")
 
-@login_required
+@login_required(login_url="iniciar-sesion")
 def formulario_blog(request):
     if request.method == "POST":
         form_blog = BlogFormulario(request.POST, request.FILES)
