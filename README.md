@@ -29,6 +29,7 @@ Modelos principales:
 Blog: Modelo que representa las publicaciones del blog.
 
 class Blog(models.Model):
+
     titulo = models.CharField(max_length=150)
     subtitulo = models.CharField(max_length=200)
     cuerpo = models.TextField()
@@ -36,6 +37,7 @@ class Blog(models.Model):
     fecha = models.DateTimeField(auto_now_add=True)
     imagen = models.ImageField(upload_to='fotos/', null=True, blank=True)
     etiqueta = models.CharField(max_length=30)
+    
 
 PerfilAvatar: Modelo para almacenar la foto de perfil de los usuarios.
 
